@@ -1,0 +1,309 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context=".views.ProductDetails"
+    android:orientation="vertical"
+    tools:showIn="@layout/activity_product_details">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/scrollView"
+        android:layout_above="@+id/button_layout"
+        android:scrollbars="vertical">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:padding="10dp"
+                android:orientation="vertical">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="300dp"
+                    android:orientation="vertical"
+                    android:id="@+id/image_layout">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_weight="80"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/text_product_name1"
+                            android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
+                            android:text="Product Name"/>
+                        <com.like.LikeButton
+                            app:like_drawable="@drawable/ic_action_share"
+                            app:unlike_drawable="@drawable/ic_action_share"
+                            app:icon_size="20dp"
+                            android:id="@+id/share_button"
+                            android:layout_width="0dp"
+                            android:layout_weight="10"
+                            android:layout_height="wrap_content"/>
+                        <com.like.LikeButton
+                            app:icon_type="heart"
+                            app:icon_size="20dp"
+                            android:id="@+id/star_button"
+                            android:layout_width="0dp"
+                            android:layout_weight="10"
+                            android:layout_height="wrap_content"/>
+
+
+                    </LinearLayout>
+
+                    <ImageView
+                        android:layout_width="200dp"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center"
+                        android:id="@+id/product_image"
+                        android:background="@drawable/men"
+                        android:layout_margin="10dp"/>
+
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="10dp">
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginBottom="10dp"
+                        android:background="@color/colorGray"></View>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/edittext_primary"
+                        android:paddingLeft="10dp"
+                        android:paddingRight="10dp">
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_weight="40"
+                            android:layout_gravity="center"
+                            android:layout_height="wrap_content"
+                            android:text="@string/spinner_color_text">
+
+                        </TextView>
+                        <Spinner
+                            android:layout_width="0dp"
+                            android:layout_weight="60"
+                            android:id="@+id/color_spinner"
+                            android:layout_gravity="center"
+                            android:layout_height="wrap_content">
+
+                        </Spinner>
+
+
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp">
+
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:layout_marginTop="10dp">
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_weight="50"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/colorRed"
+                            android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+                            android:text="@string/total">
+
+                        </TextView>
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_weight="60"
+                            android:textSize="24sp"
+                            android:id="@+id/text_product_total"
+                            android:textColor="@color/colorRed"
+                            android:layout_height="wrap_content"
+                            android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+                            android:text="total">
+
+                        </TextView>
+
+
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="2dp"
+                        android:layout_marginTop="7dp"
+                        android:background="@color/colorGray"></View>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp">
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_weight="40"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/colorBlack"
+                            android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+                            android:text="@string/description">
+
+                        </TextView>
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="15dp">
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_weight="40"
+                            android:layout_height="wrap_content"
+                            android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+                            android:text="@string/product_name">
+
+                        </TextView>
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_weight="60"
+                            android:id="@+id/text_product_name2"
+                            android:layout_height="wrap_content"
+                            android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+                            android:text="name">
+
+                        </TextView>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp">
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_weight="40"
+                            android:layout_height="wrap_content"
+                            android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+                            android:text="@string/price">
+
+                        </TextView>
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_weight="60"
+                            android:id="@+id/text_product_price"
+                            android:layout_height="wrap_content"
+                            android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+                            android:text="price">
+
+                        </TextView>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp">
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_weight="40"
+                            android:layout_height="wrap_content"
+                            android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+                            android:text="@string/tax">
+
+                        </TextView>
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_weight="60"
+                            android:id="@+id/text_product_tax"
+                            android:layout_height="wrap_content"
+                            android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+                            android:text="tax">
+
+                        </TextView>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp">
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_weight="40"
+                            android:layout_height="wrap_content"
+                            android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+                            android:text="@string/color">
+
+                        </TextView>
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_weight="60"
+                            android:id="@+id/text_product_color"
+                            android:layout_height="wrap_content"
+                            android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+                            android:text="color">
+
+                        </TextView>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp">
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_weight="40"
+                            android:layout_height="wrap_content"
+                            android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+                            android:text="@string/size">
+
+                        </TextView>
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_weight="60"
+                            android:id="@+id/text_product_size"
+                            android:layout_height="wrap_content"
+                            android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+                            android:text="size">
+
+                        </TextView>
+
+
+                    </LinearLayout>
+
+
+
+
+                </LinearLayout>
+
+            </LinearLayout>
+    </ScrollView>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/button_layout"
+        android:layout_alignParentBottom="true">
+        <Button
+            android:layout_width="0dp"
+            android:layout_weight="50"
+            android:layout_height="wrap_content"
+            android:text="@string/add_to_cart"
+            android:id="@+id/button_addtocart"
+            android:theme="@style/GreenButtonStyle">
+
+        </Button>
+        <Button
+            android:layout_width="0dp"
+            android:layout_weight="50"
+            android:layout_height="wrap_content"
+            android:text="@string/buy_now"
+            android:id="@+id/button_buynow"
+            android:theme="@style/YellowButtonStyle">
+
+        </Button>
+    </LinearLayout>
+</RelativeLayout>
