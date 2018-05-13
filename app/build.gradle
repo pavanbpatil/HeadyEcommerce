@@ -43,5 +43,7 @@ dependencies {
     //wishlist button
     implementation 'com.github.jd-alexander:LikeButton:0.2.3'
 
+    implementation 'com.ramotion.cardslider:card-slider:0.2.0'
+
     annotationProcessor 'com.jakewharton:butterknife-compiler:8.5.1'
 }

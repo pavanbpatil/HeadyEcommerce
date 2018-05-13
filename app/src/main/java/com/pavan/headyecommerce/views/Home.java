@@ -1,10 +1,7 @@
 package com.pavan.headyecommerce.views;
 
-import android.content.Context;
-import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -12,17 +9,17 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.inputmethod.InputMethodManager;
+import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
-import android.widget.SearchView;
+import android.support.v7.widget.SearchView;
 import android.widget.Toast;
-
 import com.pavan.headyecommerce.R;
 import com.pavan.headyecommerce.adapter.CategoryListRecycler;
 import com.pavan.headyecommerce.adapter.RankingListRecycler;
 import com.pavan.headyecommerce.model.Category;
-import com.pavan.headyecommerce.model.Product;
 import com.pavan.headyecommerce.model.Ranking;
 import com.pavan.headyecommerce.remote.ApiUtils;
 import com.pavan.headyecommerce.remote.DataResponse;
@@ -77,11 +74,13 @@ public class Home extends AppCompatActivity {
         RecyclerView.LayoutManager layoutManager = new GridLayoutManager(this,2);
         recycler_view.setLayoutManager(layoutManager);
         recycler_view.setAdapter(mCategoryAdapter);
+        recycler_view.setNestedScrollingEnabled(false);
         recycler_view.setHasFixedSize(true);
 
         RecyclerView.LayoutManager rank_layoutManager = new LinearLayoutManager(this,LinearLayoutManager.VERTICAL, false);
         recycler_view1.setLayoutManager(rank_layoutManager);
         recycler_view1.setAdapter(mRankingAdapter);
+        recycler_view1.setNestedScrollingEnabled(false);
         recycler_view1.setHasFixedSize(true);
          getData();
 
@@ -138,6 +137,8 @@ public class Home extends AppCompatActivity {
     }
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-            return super.onOptionsItemSelected(item);
-        }
+        return super.onOptionsItemSelected(item);
+    }
+
+
 }

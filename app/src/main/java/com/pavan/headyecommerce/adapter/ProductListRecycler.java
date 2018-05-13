@@ -12,6 +12,7 @@ import android.widget.Toast;
 
 import com.pavan.headyecommerce.R;
 import com.pavan.headyecommerce.model.Category;
+import com.pavan.headyecommerce.model.IdSelector;
 import com.pavan.headyecommerce.model.Product;
 import com.pavan.headyecommerce.views.ProductDetails;
 import com.pavan.headyecommerce.views.Products;
@@ -31,7 +32,7 @@ public class ProductListRecycler extends RecyclerView.Adapter<ProductListRecycle
         public TextView product_name,product_variant;
         PostItemListener mItemListener;
 
-        public ViewHolder(View itemView, PostItemListener postItemListener) {
+        private ViewHolder(View itemView, PostItemListener postItemListener) {
             super(itemView);
             product_name = (TextView) itemView.findViewById(R.id.product_name);
             product_variant = (TextView) itemView.findViewById(R.id.product_variant);
@@ -44,7 +45,7 @@ public class ProductListRecycler extends RecyclerView.Adapter<ProductListRecycle
         public void onClick(View view) {
             Product item = getItem(getAdapterPosition());
             this.mItemListener.onPostClick(item.getId());
-            ProductDetails.productid=getAdapterPosition();
+            IdSelector.setProductId(getAdapterPosition());
             Intent i = new Intent(mContext, ProductDetails.class);
             mContext.startActivity(i);
             notifyDataSetChanged();

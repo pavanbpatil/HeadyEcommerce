@@ -4,9 +4,42 @@
     tools:context="com.pavan.headyecommerce.views.Home">
 
     <item android:id="@+id/mycart"
-    android:title="@string/cart_title"
-    android:icon="@drawable/cart"
-    app:showAsAction="always"
+        android:title="@string/cart_title"
+        android:icon="@drawable/cart"
+        app:showAsAction="ifRoom"
     />
+
+    <item android:id="@+id/account"
+        android:title="@string/my_account"
+        android:icon="@drawable/ic_action_person"
+        app:showAsAction="ifRoom">
+
+        <menu>
+            <item
+                android:id="@+id/action_reward"
+                app:showAsAction="never"
+                android:icon="@drawable/ic_action_reward"
+                android:title="@string/my_reward"
+                />
+            <item
+                android:id="@+id/action_wishlist"
+                app:showAsAction="never"
+                android:icon="@drawable/ic_action_wishlist"
+                android:title="@string/my_wishlist"
+                />
+            <item
+                android:id="@+id/action_order"
+                app:showAsAction="never"
+                android:icon="@drawable/ic_action_order"
+                android:title="@string/my_order"
+                />
+            <item
+                android:id="@+id/action_account"
+                app:showAsAction="never"
+                android:icon="@drawable/ic_action_account"
+                android:title="@string/my_account"
+                />
+        </menu>
+    </item>
 
 </menu>

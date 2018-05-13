@@ -14,6 +14,7 @@ import android.widget.Toast;
 import com.pavan.headyecommerce.R;
 import com.pavan.headyecommerce.helper.CommonUtilities;
 import com.pavan.headyecommerce.model.Category;
+import com.pavan.headyecommerce.model.IdSelector;
 import com.pavan.headyecommerce.model.Product;
 import com.pavan.headyecommerce.views.Products;
 
@@ -46,7 +47,8 @@ public class CategoryListRecycler extends RecyclerView.Adapter<CategoryListRecyc
         public void onClick(View view) {
             Category item = getItem(getAdapterPosition());
             this.mItemListener.onPostClick(item.getId());
-            Products.catid=getAdapterPosition();
+            //Products.catid=getAdapterPosition();
+            IdSelector.setCatId(getAdapterPosition());
             Intent i = new Intent(mContext, Products.class);
             mContext.startActivity(i);
             notifyDataSetChanged();

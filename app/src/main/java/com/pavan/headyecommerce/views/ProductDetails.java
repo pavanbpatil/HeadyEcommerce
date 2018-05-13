@@ -18,6 +18,7 @@ import com.like.LikeButton;
 import com.like.OnLikeListener;
 import com.pavan.headyecommerce.R;
 import com.pavan.headyecommerce.helper.CommonUtilities;
+import com.pavan.headyecommerce.model.IdSelector;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -39,9 +40,7 @@ public class ProductDetails extends AppCompatActivity {
     @BindView(R.id.color_spinner)Spinner color_spinner;
     @BindView(R.id.star_button)LikeButton star_button;
     @BindView(R.id.share_button)LikeButton share_button;
-    public static int productid;
     public ArrayAdapter<String> coloradapter;
-    public ArrayAdapter<String> sizeadapter;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -57,9 +56,9 @@ public class ProductDetails extends AppCompatActivity {
         ButterKnife.bind(this);
 
 
-        text_product_name1.setText(Home.categories.get(Products.catid).getProducts().get(productid).getName().toString().trim());
-        text_product_name2.setText(Home.categories.get(Products.catid).getProducts().get(productid).getName().toString().trim());
-        text_product_tax.setText(Home.categories.get(Products.catid).getProducts().get(productid).getTax().getValue().toString().trim()+" % "+Home.categories.get(Products.catid).getProducts().get(productid).getTax().getName().toString().trim());
+        text_product_name1.setText(Home.categories.get(IdSelector.getCatId()).getProducts().get(IdSelector.getProductId()).getName().toString().trim());
+        text_product_name2.setText(Home.categories.get(IdSelector.getCatId()).getProducts().get(IdSelector.getProductId()).getName().toString().trim());
+        text_product_tax.setText(Home.categories.get(IdSelector.getCatId()).getProducts().get(IdSelector.getProductId()).getTax().getValue().toString().trim()+" % "+Home.categories.get(IdSelector.getCatId()).getProducts().get(IdSelector.getProductId()).getTax().getName().toString().trim());
 
 
         coloradapter =new ArrayAdapter<String>(getApplicationContext(),R.layout.spinner_item,getAvailableColors());
@@ -72,13 +71,13 @@ public class ProductDetails extends AppCompatActivity {
                 int nondecimalsize=0,nondecimalprice=0;
                 String item = parent.getItemAtPosition(position).toString();
                 color_spinner.setSelection(position);
-                text_product_color.setText(Home.categories.get(Products.catid).getProducts().get(productid).getVariants().get(position).getColor().toString());
+                text_product_color.setText(Home.categories.get(IdSelector.getCatId()).getProducts().get(IdSelector.getProductId()).getVariants().get(position).getColor().toString());
                 try {
-                    nondecimalsize = (int) (Double.parseDouble(Home.categories.get(Products.catid).getProducts().get(productid).getVariants().get(position).getSize().toString()));
+                    nondecimalsize = (int) (Double.parseDouble(Home.categories.get(IdSelector.getCatId()).getProducts().get(IdSelector.getProductId()).getVariants().get(position).getSize().toString()));
                 }catch (NullPointerException e){}
                 text_product_size.setText(String.valueOf(nondecimalsize));
-                text_product_price.setText("\u20B9 "+Home.categories.get(Products.catid).getProducts().get(productid).getVariants().get(position).getPrice().toString());
-                String totalaftertax= CommonUtilities.taxCalculator(Home.categories.get(Products.catid).getProducts().get(productid).getVariants().get(position).getPrice(),Home.categories.get(Products.catid).getProducts().get(productid).getTax().getValue());
+                text_product_price.setText("\u20B9 "+Home.categories.get(IdSelector.getCatId()).getProducts().get(IdSelector.getProductId()).getVariants().get(position).getPrice().toString());
+                String totalaftertax= CommonUtilities.taxCalculator(Home.categories.get(IdSelector.getCatId()).getProducts().get(IdSelector.getProductId()).getVariants().get(position).getPrice(),Home.categories.get(IdSelector.getCatId()).getProducts().get(IdSelector.getProductId()).getTax().getValue());
                 nondecimalprice=(int) Double.parseDouble(totalaftertax);
                 text_product_total.setText("\u20B9 "+nondecimalprice);
             }
@@ -119,15 +118,15 @@ public class ProductDetails extends AppCompatActivity {
     public List getAvailableColors() {
         List l = new ArrayList();
         int nondecimalsize=0;
-            if (Home.categories.get(Products.catid).getProducts().get(productid).getVariants().size() > 0) {
-                for (int i = 0; i < Home.categories.get(Products.catid).getProducts().get(productid).getVariants().size(); i++) {
+            if (Home.categories.get(IdSelector.getCatId()).getProducts().get(IdSelector.getProductId()).getVariants().size() > 0) {
+                for (int i = 0; i < Home.categories.get(IdSelector.getCatId()).getProducts().get(IdSelector.getProductId()).getVariants().size(); i++) {
                     try {
-                        nondecimalsize = (int) (Double.parseDouble(Home.categories.get(Products.catid).getProducts().get(productid).getVariants().get(i).getSize().toString()));
+                        nondecimalsize = (int) (Double.parseDouble(Home.categories.get(IdSelector.getCatId()).getProducts().get(IdSelector.getProductId()).getVariants().get(i).getSize().toString()));
                     }catch (NullPointerException e)
                     {
 
                     }
-                     l.add(Home.categories.get(Products.catid).getProducts().get(productid).getVariants().get(i).getColor() + " (" + nondecimalsize + ")");
+                     l.add(Home.categories.get(IdSelector.getCatId()).getProducts().get(IdSelector.getProductId()).getVariants().get(i).getColor() + " (" + nondecimalsize + ")");
                 }
             }
 

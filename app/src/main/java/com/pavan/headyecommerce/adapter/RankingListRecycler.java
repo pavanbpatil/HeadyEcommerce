@@ -16,6 +16,8 @@ import com.pavan.headyecommerce.model.Category;
 import com.pavan.headyecommerce.model.Product_;
 import com.pavan.headyecommerce.model.Ranking;
 import com.pavan.headyecommerce.views.Home;
+import com.ramotion.cardslider.CardSliderLayoutManager;
+import com.ramotion.cardslider.CardSnapHelper;
 
 import java.util.ArrayList;
 import java.util.List;

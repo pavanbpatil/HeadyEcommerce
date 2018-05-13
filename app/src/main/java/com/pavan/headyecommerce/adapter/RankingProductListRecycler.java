@@ -12,6 +12,7 @@ import android.widget.TextView;
 
 import com.pavan.headyecommerce.R;
 import com.pavan.headyecommerce.helper.CommonUtilities;
+import com.pavan.headyecommerce.model.IdSelector;
 import com.pavan.headyecommerce.model.Product;
 import com.pavan.headyecommerce.model.Product_;
 import com.pavan.headyecommerce.model.Ranking;
@@ -127,8 +128,8 @@ public class RankingProductListRecycler extends RecyclerView.Adapter<RankingProd
                     for(int j=0;j<Home.categories.get(i).getProducts().size();j++) {
                         if (Home.categories.get(i).getProducts().get(j).getId()==item.getId())
                         {
-                            Products.catid= i;
-                            ProductDetails.productid=j;
+                            IdSelector.setCatId(i);
+                            IdSelector.setProductId(j);
                             Intent intent=new Intent(mContext,ProductDetails.class);
                             mContext.startActivity(intent);
                         }

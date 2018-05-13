@@ -18,6 +18,7 @@ import com.pavan.headyecommerce.adapter.CategoryListRecycler;
 import com.pavan.headyecommerce.adapter.ChildCategoryListRecycler;
 import com.pavan.headyecommerce.adapter.ProductListRecycler;
 import com.pavan.headyecommerce.model.Category;
+import com.pavan.headyecommerce.model.IdSelector;
 import com.pavan.headyecommerce.model.Product;
 import com.pavan.headyecommerce.remote.ApiUtils;
 
@@ -31,7 +32,6 @@ public class Products extends AppCompatActivity {
     @BindView(R.id.recycler_view)RecyclerView recycler_view;
     private ProductListRecycler mProductAdapter;
     private ChildCategoryListRecycler mChildCatAdapter;
-    public static int catid;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -61,23 +61,23 @@ public class Products extends AppCompatActivity {
             }
         });
 
-        if(Home.categories.get(catid).getProducts().size()>0)
+        if(Home.categories.get(IdSelector.getCatId()).getProducts().size()>0)
         {
-            setTitle(Home.categories.get(catid).getName());
+            setTitle(Home.categories.get(IdSelector.getCatId()).getName());
             RecyclerView.LayoutManager rank_layoutManager = new LinearLayoutManager(this);
             recycler_view.setLayoutManager(rank_layoutManager);
             recycler_view.setAdapter(mProductAdapter);
             recycler_view.setHasFixedSize(true);
-            mProductAdapter.updateProducts(Home.categories.get(catid).getProducts());
+            mProductAdapter.updateProducts(Home.categories.get(IdSelector.getCatId()).getProducts());
         }
-       else if(Home.categories.get(catid).getChildCategories().size()>0)
+       else if(Home.categories.get(IdSelector.getCatId()).getChildCategories().size()>0)
         {
-            setTitle(Home.categories.get(catid).getName()+ " Sub Categories");
+            setTitle(Home.categories.get(IdSelector.getCatId()).getName()+ " Sub Categories");
             RecyclerView.LayoutManager rank_layoutManager = new GridLayoutManager(this,2);
             recycler_view.setLayoutManager(rank_layoutManager);
             recycler_view.setAdapter(mChildCatAdapter);
             recycler_view.setHasFixedSize(true);
-            mChildCatAdapter.updateCats(Home.categories.get(catid).getChildCategories());
+            mChildCatAdapter.updateCats(Home.categories.get(IdSelector.getCatId()).getChildCategories());
         }
 
     }
