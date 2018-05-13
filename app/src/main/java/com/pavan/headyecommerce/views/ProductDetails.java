@@ -69,7 +69,6 @@ public class ProductDetails extends AppCompatActivity {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 int nondecimalsize=0,nondecimalprice=0;
-                String item = parent.getItemAtPosition(position).toString();
                 color_spinner.setSelection(position);
                 text_product_color.setText(Home.categories.get(IdSelector.getCatId()).getProducts().get(IdSelector.getProductId()).getVariants().get(position).getColor().toString());
                 try {
